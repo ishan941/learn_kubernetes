@@ -1,22 +1,25 @@
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube % mkdir day3 && cd day3
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube % mkdir day3 && cd day3
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % touch deployment.yaml
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % touch deployment.yaml
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % touch service.yaml
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % touch service.yaml
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl apply -f deployment.yaml
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl apply -f deployment.yaml
+
 deployment.apps/hello-app created
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl apply -f service.yaml
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl apply -f service.yaml
+
 service/hello-app-service created
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get deployments
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get deployments
 
 NAME READY UP-TO-DATE AVAILABLE AGE
 hello-app 2/2 2 2 9s
 hello-node 2/2 2 2 22m
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get pods
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get pods
+
 NAME READY STATUS RESTARTS AGE
 hello-app-57669678fc-2c5dg 1/1 Running 0 14s
 hello-app-57669678fc-86rpv 1/1 Running 0 14s
@@ -24,10 +27,11 @@ hello-node-7b5bd4c5b4-kgscx 1/1 Running 0 22m
 hello-node-7b5bd4c5b4-wpgxz 1/1 Running 0 22m
 my-nginx 1/1 Running 0 3m52s
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl scale deployment hello-app --replicas=5
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl scale deployment hello-app --replicas=5
+
 deployment.apps/hello-app scaled
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get pods
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get pods
 
 NAME READY STATUS RESTARTS AGE
 hello-app-57669678fc-2c5dg 1/1 Running 0 27s
@@ -39,13 +43,15 @@ hello-node-7b5bd4c5b4-kgscx 1/1 Running 0 22m
 hello-node-7b5bd4c5b4-wpgxz 1/1 Running 0 22m
 my-nginx 1/1 Running 0 4m5s
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl set image deployment/hello-app web=nginx:alpine
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl set image deployment/hello-app web=nginx:alpine
+
 deployment.apps/hello-app image updated
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl rollout status deployment/hello-app
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl rollout status deployment/hello-app
+
 deployment "hello-app" successfully rolled out
 
-ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get pods -o wide
+## ishanshrestha@Ishans-MacBook-Air ~/development/learnkube/day3 % kubectl get pods -o wide
 
 NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATES
 hello-app-5f4b5f999f-6lntj 1/1 Running 0 62s 10.42.0.18 colima <none> <none>
